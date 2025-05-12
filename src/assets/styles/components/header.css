@@ -12,14 +12,19 @@ background: grey;}
 header {
     position :fixed;
     width: 100%;
-display :flex;
-justify-content: space-between;
-align-items: center;
+
 background: #030303;
 color: #fff;
 padding: 10px 15px;
-border-bottom: 1px solid red;}
-
+border-bottom: 1px solid red;
+z-index: 100;
+}
+.containerHeader{
+  display :flex;
+justify-content: space-between;
+align-items: center;
+margin-inline : 8em;
+}
 .menu-header , .menu-connexion , .menu-logo {
     width: 100%;
 }
@@ -46,7 +51,7 @@ border-bottom: 1px solid red;}
 
 .menu-logo{
     display: flex;
-justify-content: center;    
+    justify-content: flex-start;    
     gap: 20px;
 }
 .menu-logo a{
@@ -60,8 +65,8 @@ justify-content: center;
 
 .menu-connexion {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: flex-end;
+    
 }
 .icon {
     fill: rgb(255, 255, 255); /* Change la couleur de remplissage */
@@ -74,20 +79,11 @@ justify-content: center;
     width: 50px;
     height: 50px;
   }
-  @media screen and (max-width: 1100px ) {
-    .menu-connexion {
-        flex : 2
+  @media screen and (max-width: 1700px ) {
+    .containerHeader {
+      margin-inline : 4em;
+
     }
-    .menu-logo {
-        flex:4
-    }
-    .menu-header {
-        flex: 4
-    }
-    
-    
-  }
-  @media screen and (max-width: 900px ) {
     .menu-connexion {
         flex : 1
     }
@@ -97,9 +93,62 @@ justify-content: center;
     .menu-header {
         flex: 5
     }
+    
+    
+  }
+    
+  @media screen and (max-width: 1100px ) {
+    .containerHeader {
+      margin-inline : 1em;
+
+    }
+    .menu-connexion {
+        flex : 1
+    }
+    .menu-logo {
+        flex:4
+    }
+    .menu-header {
+        flex: 5
+    }
+    
+    
+  }
+  @media screen and (max-width: 1000px ) {
+    .containerHeader {
+      margin-inline : 1em;
+    }
+    
+    
+    
+  }
+  @media screen and (max-width: 900px ) {
+
+    .containerHeader {
+      margin-inline : 1em;
+  }
+    .menu-connexion {
+        flex : 1
+    }
+    .menu-logo {
+        flex:4
+    }
+    .menu-header {
+        flex: 5
+    }
+
+    .menu-logo a{
+        font-size : 3rem;
+    }
+
+    .menu-mobile {
+        gap: 10px;
+    }
 }
   @media screen and (max-width: 660px) {
-    
+    .containerHeader {
+        margin-inline : 0em;
+    }
 
     .burger-btn {
       display: block;
@@ -111,8 +160,9 @@ justify-content: center;
       justify-content: center; /* horizontalement */}
     
     .menu-logo{
-        flex :5
-    }
+      display: flex;
+      justify-content: center;
+      }
     
     .menu-mobile {
         position: absolute;

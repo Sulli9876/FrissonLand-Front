@@ -6,3 +6,11 @@
     font-style: normal;
     font-display: swap;
 }
+@font-face {
+    font-family: 'Bloody';
+    src: url('Bloody.woff2') format('woff2'),
+        url('Bloody.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

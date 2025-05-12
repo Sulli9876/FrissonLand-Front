@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
-import AccountIcon from '../../assets/images/account.svg?react';
-import BurgerMenu from '../../assets/images/burgerMenu.svg?react';
-import CloseIcon from '../../assets/images/closeIcon.svg?react';
+import AccountIcon from '../../../public/images/account.svg?react';
+import BurgerMenu from '../../../public/images/burgerMenu.svg?react';
+import CloseIcon from '../../../public/images/closeIcon.svg?react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -77,10 +77,11 @@ export default function Header() {
 
   return (
     <header>
+      <div className="containerHeader">
       {/* Bouton burger pour petits écrans */}
       <div className="burger-btn" onClick={toggleMenu}>
   {isMenuOpen ? <CloseIcon /> : <BurgerMenu />}
-</div>      <h1 className="menu-logo"><NavLink to="/">ZOMBIELAND</NavLink></h1>
+</div>      <h1 className="menu-logo"><NavLink to="/">FRISSONLAND</NavLink></h1>
 
       <nav className="menu-header">
         
@@ -108,6 +109,7 @@ export default function Header() {
         ) : (
           <NavLink className="log-in" to="/login">  <AccountIcon className="icon" /></NavLink>
         )}
+      </div>
       </div>
     </header>
   );

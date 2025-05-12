@@ -1,0 +1,428 @@
+@import url('../base/font.css');
+
+body{
+   background-color: black;
+}
+
+main{
+  padding-top : 70px
+}
+
+.haut{
+    background-image: url('/public/images/background1.png');
+    background-position: center center;
+  background-size: contain;
+  background-repeat: repeat;
+  
+  height: 700px;
+}
+
+.haut-container{
+    height: 700px;
+    background-color: transparent;
+    background-image: radial-gradient(at center center, #00000000 16%, #000000 63%);
+    opacity: 1;
+}
+
+.haut_h2{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 500px;
+    color: white
+
+ }
+
+ .haut_presentation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    gap: 60px;
+    color: white
+ }
+.haut_h2{
+    font-size: 5rem;
+    font-family: 'DK Face Your Fears', sans-serif;
+}
+ .desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+ }
+
+ .desc_1{
+    font-size: 20px;
+    font-weight: bold;
+ }
+
+ .milieu {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100%;  
+  margin-left: -50vw;
+  margin-right: -50vw;
+  height: 700px;
+  background: url('/public/images/project.jpg')
+              center center / cover no-repeat;
+}
+ 
+ /* wrapper centré et à la taille exacte de l’image redimensionnée */
+ .milieu-wrapper {
+   position: absolute;
+   top: 50%; 
+   left: 50%;
+   width: calc(700px * 16 / 9); 
+   height: 700px;
+   transform: translate(-50%, -50%);
+ }
+ 
+ /* boîtes en absolute, taille auto selon contenu */
+ .milieu-wrapper > div {
+   position: absolute;
+   padding: 1rem;
+   background: rgba(0,0,0,0.4);
+   color: white;
+   box-sizing: border-box;
+   max-width: 45%; /* pour éviter qu’elles ne soient trop larges */
+ }
+ 
+ /* Position exacte dans les coins */
+ .milieu-haut-gauche {
+   top: 30px;
+   left: 30px;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   align-items: flex-start;
+   gap: 20px;
+  ;
+ }
+ .milieu-haut-gauche h2 {
+   margin-bottom: 100rem; /* ou 20px, selon ce qui te convient */
+   
+ }
+ 
+ 
+ 
+ .milieu-bas-droite {
+   bottom: 030px;
+   right: 30px;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   align-items: flex-start;
+   gap: 20px;
+ }
+ 
+ /* Styles internes */
+ .milieu-wrapper h2 {
+   font-size: 2.5rem;
+   margin-bottom: .5rem;
+   color : red;
+   font-family: 'DK Face Your Fears', sans-serif;
+ }
+ .milieu-wrapper p {
+   font-size: 1.1 rem;
+   line-height: 1.4;
+ }
+ 
+ .button_decouvrir {
+   background-color: red;
+   color: white;
+   font-weight: bold;
+   padding: 10px 20px;
+   border-radius: 10px;
+   text-decoration: none;
+ }
+ 
+ .button_decouvrir:hover {
+  box-shadow: 0 8px 16px rgba(201, 6, 6, 0.4); /* Ajoute une ombre au survol */
+}
+/* -------------- Carousel -------------- */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 60px;
+  box-sizing: border-box;
+
+  margin-top: 30px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 40px; /* un peu plus d’espace entre les cartes */
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attraction-card {
+  flex: 0 0 calc((100% - 2 * 60px - 2 * 40px) / 3); /* 3.5 au lieu de 3 pour des cartes plus petites */
+  aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.attraction-card:hover {
+  transform: scale(1.03);
+}
+
+.attraction-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 3px black;
+}
+
+.attraction-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.attraction-button {
+  padding: 0.4rem 0.8rem;
+  background: crimson;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.carousel-arrow.left {
+  left: 10px;
+}
+
+.carousel-arrow.right {
+  right: 10px;
+}
+.bas{
+  padding-bottom: 10%;
+}
+
+/* ---------- Responsive ---------- */
+@media screen and (max-width: 1600px) {
+  .milieu-wrapper {
+    width: 90vw;
+    height: 500px;
+    padding: 1rem;
+  }
+  .milieu-bas-droite{
+    bottom: 0px;
+  }
+  
+  .attraction-card {
+  flex: 0 0 calc((100% - 2 * 60px - 2 * 45px) / 2.5); /* 3 cartes visibles */
+}
+
+
+
+}
+@media (max-width: 1280px) {
+  .attraction-card {
+    flex: 0 0 calc((100% - 2 * 40px) / 3); /* 2.5 cartes */
+  }
+}
+@media (max-width: 1024px) {
+  .milieu{
+    height: 400px;
+  }
+  .milieu-wrapper {
+    width: 80vw;
+    height: auto;
+    padding: 1rem;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+  }
+
+  .milieu-wrapper > div {
+    position: static;
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .milieu-haut-gauche h2{
+    display: flex;
+    justify-content: center;
+  }
+  .milieu-bas-droite {
+    display: flex;
+    justify-content: center;
+  }
+ 
+ 
+  .carousel-track {
+    gap: 20px;
+  }
+
+  .attraction-card {
+    flex: 0 0 calc((100% - 2 * 20px) / 2.5); /* 2 cartes visibles sur tablette */
+  }
+
+  .carousel-arrow {
+    padding: 0.8rem;
+    font-size: 1.5rem;
+  }
+  .carousel-container{
+    padding-bottom: 10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main{
+    padding-top: 40px;
+  }
+  .haut {
+    height: 400px;
+  }
+  .haut_h2{
+    display: flex;
+    align-items: flex-start;
+  }
+  .haut-container {
+    height: 400px;
+  }
+
+  .haut_h2 {
+    font-size: 3rem;
+    height: 250px;
+    margin: 2rem;
+  }
+  .haut_presentation {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;          /* s’étend sur tout le container */
+    padding: 0 1rem;    
+    height: auto;  /* un peu de marge latérale si besoin */
+  }
+  .desc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;         /* limite à 80% de l’écran */
+    max-width: 320px;    /* ou la largeur qui te convient */
+    margin: 0 auto;      /* centre le bloc .desc */
+  }
+  .desc_1 {
+    font-weight: bold;
+    margin: 0;                       /* on enlève tout margin superflu */
+  }
+  .desc p:last-child {
+    margin: 0;                       /* idem */
+    text-align: right;               /* assure que le texte reste aligné à droite */
+  } 
+
+  .milieu {
+    height: auto; /* ← important */
+    padding-top: 5rem;
+  }
+
+  .milieu-wrapper {
+    height: auto;
+    width: 100vw;  /* ← important */
+    padding: 2rem 1rem;
+    flex-direction: column;
+    position: static; /* ← évite les problèmes de position absolue */
+    transform: none;
+  }
+    
+
+  .milieu-wrapper > div {
+    position: static;
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .milieu-haut-gauche h2{
+    text-align: center;
+  }
+  .milieu-bas-droite , .milieu-haut-gauche{
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* ← centrer le contenu horizontalement */
+    text-align: center;      /* ← centrer les textes */
+    justify-content: center; /* ← centrer verticalement (utile si bloc a une hauteur fixe) */
+  }
+  .milieu-bas-droite h2{
+    display: flex ;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .carousel-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+  
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      transform: translateX(0); /* par défaut */
+      transition: transform 0.5s ease-in-out;
+    }
+    .attraction-card {
+      flex: 0 0 100%;        /* chaque carte prend toute la track */
+      max-width: 300px;      /* taille réelle limitée */
+      margin: 0 auto;
+      aspect-ratio: 1 / 1;
+    }
+  .carousel-arrow {
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem;
+  position: absolute;
+  z-index: 10;
+}
+
+  .carousel-arrow.left {
+    left: 10px;
+  }
+
+  .carousel-arrow.right {
+    right: 10px;
+  }
+}
