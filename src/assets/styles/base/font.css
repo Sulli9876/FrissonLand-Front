@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'DK Face Your Fears';
+    src: url('/fonts/DKFaceYourFears.woff2') format('woff2'),
+        url('/fonts/DKFaceYourFears.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
