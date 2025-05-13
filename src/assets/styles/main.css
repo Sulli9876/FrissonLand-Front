@@ -2,4 +2,23 @@
 @import './base/font.css';
 @import './components/header.css';
 @import './pages/homePage.css';
-@import './components/footer.css'
+@import './components/footer.css';
+@import './pages/attractionsPage.css';
+@import './pages/attractionPage.css';
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Permet de pousser le footer vers le bas */
+  }
+  
+  .container > .main-content {
+    flex: 1; /* Prend tout l'espace disponible */
+  }
+  
