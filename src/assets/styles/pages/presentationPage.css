@@ -76,6 +76,10 @@
     padding-bottom: 0.3rem;
   }
   
+  .ticket-quantity{
+    padding: 1rem 0;
+  font-size: 1.1rem;
+  }
   /* Tarifs */
   .park-tarif-item {
     margin-top: 3rem;
@@ -114,6 +118,7 @@
   
   /* Responsive */
   @media (max-width: 768px) {
+    
     .park-all {
       flex-direction: column;
     }
