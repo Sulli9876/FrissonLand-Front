@@ -97,12 +97,18 @@ export default function Header() {
       <div className="menu-connexion">
         {isLoggedIn ? (
           <>
-            <button onClick={toggleLoggedIn}>Mon Compte</button>
+            <div className="account-icon-wrapper" onClick={toggleLoggedIn}>
+              <AccountIcon className="icon" />
+            </div>
             {isLoggedInOpen && (
-              <div className="account-menu">
-                <NavLink className="booking" to={`/profile/${userId}/reservations`}><button>Mes réservations</button></NavLink>
-                <NavLink className="profile" to={`/profile/${userId}`}><button>Profil</button></NavLink>
-                <button className="log-out" onClick={handleLogout}>Déconnexion</button>
+              <div className={`account-menu ${isLoggedInOpen ? 'open' : ''}`}>
+                <NavLink className="booking" to={`/profile/${userId}/reservations`}>
+                  <button className="menu-btn">Mes réservations</button>
+                </NavLink>
+                <NavLink className="profile" to={`/profile/${userId}`}>
+                  <button className="menu-btn">Profil</button>
+                </NavLink>
+                <button className="log-out menu-btn" onClick={handleLogout}>Déconnexion</button>
               </div>
             )}
           </>

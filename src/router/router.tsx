@@ -6,6 +6,9 @@ import AttractionsPage from '../pages/attractionsPage/attractionsPage';
 import AttractionPage from '../pages/attractionPage/attractionPage';
 import PresentationPage from '../pages/presentationPage/presentationPage';
 import ReservationPage from '../pages/reservationPage/reservationPage';
+import LoginPage from '../pages/loginPage/loginPage';
+import RegisterPage from '../pages/registerPage/registerPage';
+
 
 
 
@@ -18,7 +21,9 @@ const router = createBrowserRouter([
           { path: '/attractions', element: <AttractionsPage /> },
           { path: '/attraction/:id', element: <AttractionPage />},
           { path: '/presentation', element: <PresentationPage />},
-          {path : '/reservation' , element : <ReservationPage />}
+          { path : '/reservation' , element : <ReservationPage />},
+          { path : '/login' , element : <LoginPage />},
+          { path : '/register' , element : <RegisterPage />},
         ],
     },
 ]);

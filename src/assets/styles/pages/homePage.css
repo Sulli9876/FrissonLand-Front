@@ -236,7 +236,7 @@ main{
   right: 10px;
 }
 .bas{
-  padding-bottom: 10%;
+  padding-bottom: 5%;
 }
 
 /* ---------- Responsive ---------- */
@@ -325,7 +325,8 @@ main{
   .haut_h2 {
     font-size: 3rem;
     height: 250px;
-    margin: 2rem;
+    margin: 1rem;
+    padding-top: 20px;
   }
   .haut_presentation {
     display: flex;

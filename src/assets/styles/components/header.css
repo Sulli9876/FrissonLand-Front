@@ -7,211 +7,297 @@
 }
 
 body {
-background: grey;}
+  background: grey;
+}
 
 header {
-    position :fixed;
-    width: 100%;
+  position: fixed;
+  width: 100%;
+  background: #000000;
+  color: #fff;
+  padding: 10px 15px;
+  border-bottom: 1px solid red;
+  z-index: 100;
+}
 
-background: #000000;
-color: #fff;
-padding: 10px 15px;
-border-bottom: 1px solid red;
-z-index: 100;
+.containerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: 8em;
 }
-.containerHeader{
-  display :flex;
-justify-content: space-between;
-align-items: center;
-margin-inline : 8em;
-}
-.menu-header , .menu-connexion , .menu-logo {
-    width: 100%;
+
+.menu-header, .menu-connexion, .menu-logo {
+  width: 100%;
 }
 
 .burger-btn {
-    display: none;
+  display: none;
 }
 
 .menu-mobile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
 }
 
 .menu-mobile a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
 }
 .menu-mobile a:hover {
-    color: red; 
+  color: red;
 }
 
-.menu-logo{
-    display: flex;
-    justify-content: flex-start;    
-    gap: 20px;
+.menu-logo {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
 }
-.menu-logo a{
-    text-decoration: none;
-    color: #fff;
-    font-size : 4rem;
-    font-weight: 400;
-    font-family: 'DK Face Your Fears', sans-serif;
+.menu-logo a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 400;
+  font-family: 'DK Face Your Fears', sans-serif;
 }
-
 
 .menu-connexion {
-    display: flex;
-    justify-content: flex-end;
-    
+  display: flex;
+  justify-content: flex-end;
 }
+
 .icon {
-    fill: rgb(255, 255, 255); /* Change la couleur de remplissage */
-    width: 50px;
-    height: 50px;
-  }
-
-.icon:hover {
-    fill: rgb(255, 0, 0); /* Change la couleur de remplissage */
-    width: 50px;
-    height: 50px;
-  }
-  @media screen and (max-width: 1700px ) {
-    .containerHeader {
-      margin-inline : 4em;
-
-    }
-    .menu-connexion {
-        flex : 1
-    }
-    .menu-logo {
-        flex:4
-    }
-    .menu-header {
-        flex: 5
-    }
-    
-    
-  }
-    
-  @media screen and (max-width: 1100px ) {
-    .containerHeader {
-      margin-inline : 1em;
-
-    }
-    .menu-connexion {
-        flex : 1
-    }
-    .menu-logo {
-        flex:4
-    }
-    .menu-header {
-        flex: 5
-    }
-    
-    
-  }
-  @media screen and (max-width: 1000px ) {
-    .containerHeader {
-      margin-inline : 1em;
-    }
-    
-    
-    
-  }
-  @media screen and (max-width: 900px ) {
-
-    .containerHeader {
-      margin-inline : 1em;
-  }
-    .menu-connexion {
-        flex : 1
-    }
-    .menu-logo {
-        flex:4
-    }
-    .menu-header {
-        flex: 5
-    }
-
-    .menu-logo a{
-        font-size : 3rem;
-    }
-
-    .menu-mobile {
-        gap: 10px;
-    }
+  fill: rgb(255, 255, 255);
+  width: 50px;
+  height: 50px;
 }
-  @media screen and (max-width: 660px) {
-    .containerHeader {
-        margin-inline : 0em;
-    }
+.icon:hover {
+  fill: rgb(255, 0, 0);
+  width: 50px;
+  height: 50px;
+}
 
-    .burger-btn {
-      display: block;
-      width: 45px;
-      height: 40px;
-      margin-right:5px;  
-      display: flex;
-      align-items: center;    /* verticalement */
-      justify-content: center; /* horizontalement */}
-    
-    .menu-logo{
-      display: flex;
-      justify-content: center;
-      }
-    
-    .menu-mobile {
-        position: absolute;
-        width: 200px;
-        height: 20vh;
-        left: 0;
-        top: calc(100% + 1px);
-        transition: transform 0.4s ease-out;
-        transform: translateX(-100%);
-        background: #030303;
-        display: flex;
-        flex-direction: column;
-        justify-content:flex-start ;
-        align-items:flex-start;
-        gap: 30px;
-        z-index: 1000;
-        padding-top: 30px;
-        border-radius: 0% 0% 20% 0%;
-      }
-      
-      .menu-mobile.open {
-        transform: translateX(0);
-      }
-      .menu-header {
-        flex : 0.1;
-      }
-      
-      .menu-mobile a {
-        color: #fff;
-        font-weight: bold;
-        margin-left: 20px;
-      }
-      
-     
-      .menu-logo a{
-        font-size : 3rem;
-        font-weight: 400;
-      }
-      .log-in{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        }
-        .icon {
-            fill: rgb(255, 255, 255); /* Change la couleur de remplissage */
-            width: 45px;
-            height: 40px;
-          }
-          
-       
+/* Wrapper autour de l'icône */
+.account-icon-wrapper {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* ----- MENU COMPTE ----- */
+
+/* Desktop */
+.account-menu {
+  position: absolute;
+  top: calc(100% + 0px);
+  right: 0;
+  width: 220px;
+  background-color: rgba(9, 9, 9, 0.8);
+  border-radius: 0 0 5px 5px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+  transform: none;
+  transition: none;
+}
+
+/* Slide-in mobile style */
+
+.menu-btn {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.menu-btn:hover {
+  background-color: #e10000;
+}
+
+.log-out {
+  background-color: #e10000;
+}
+.log-out:hover {
+  background-color: #b80000;
+}
+
+/* ----- RESPONSIVE GRILLE ----- */
+
+@media screen and (max-width: 1700px) {
+  .containerHeader {
+    margin-inline: 4em;
   }
+  .menu-connexion {
+    flex: 1;
+  }
+  .menu-logo {
+    flex: 4;
+  }
+  .menu-header {
+    flex: 5;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .containerHeader {
+    margin-inline: 1em;
+  }
+  .menu-connexion {
+    flex: 1;
+  }
+  .menu-logo {
+    flex: 4;
+  }
+  .menu-header {
+    flex: 5;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .containerHeader {
+    margin-inline: 1em;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .containerHeader {
+    margin-inline: 1em;
+  }
+
+  .menu-connexion {
+    flex: 1;
+  }
+  .menu-logo {
+    flex: 4;
+  }
+  .menu-header {
+    flex: 5;
+  }
+
+  .menu-logo a {
+    font-size: 3rem;
+  }
+
+  .menu-mobile {
+    gap: 10px;
+  }
+
+  .menu-btn {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .menu-mobile {
+    position: absolute;
+    top: calc(100% + 0px);
+    left: 0;
+    width: 240px;
+    background-color: rgba(9, 9, 9, 0.8);
+    border-radius: 0 0 10% 0;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    z-index: 1000;
+    transform: translateX(-120%);
+    transition: transform 0.4s ease-out;
+  }
+
+  .menu-mobile.open {
+    transform: translateX(0);
+  }
+
+  .menu-mobile .nav-link {
+    width: 100%; /* pour forcer la largeur pleine du bouton */
+  }
+
+  .menu-mobile .nav-link a {
+    display: inline-block;
+    width: 100%; /* assure que le fond couvre toute la largeur du menu */
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 12px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    box-sizing: border-box; /* empêche le padding de dépasser la largeur */
+    transition: background-color 0.3s ease;
+  }
+
+  .menu-mobile .nav-link a:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  .containerHeader {
+    margin-inline: 0em;
+  }
+
+  .burger-btn {
+    display: flex;
+    width: 45px;
+    height: 40px;
+    margin-right: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-logo {
+    display: flex;
+    justify-content: center;
+  }
+  .account-menu {
+    position: absolute;
+    top: calc(100% + 0px);
+    right: 0;
+    width: 179px;
+    height: auto;
+    border-radius: 0 0 0 10%;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    z-index: 1000;
+    transform: translateX(120%);
+    transition: transform 0.4s ease-out;
+  }
+
+  .account-menu.open {
+    transform: translateX(0);
+  }
+  
+  .menu-header {
+    flex: 0.1;
+  }
+  
+
+  .menu-logo a {
+    font-size: 3rem;
+    font-weight: 400;
+  }
+
+  .log-in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .icon {
+    width: 45px;
+    height: 40px;
+  }
+}

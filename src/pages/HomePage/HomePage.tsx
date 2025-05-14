@@ -47,7 +47,7 @@ const handleNext = () => {
                 </div>
                 <div className="desc">
                   <p className="desc_1">NIVEAU DE PEUR :</p>
-                  <p>5/5</p>
+                  <p>🕱🕱🕱🕱🕱</p>
                 </div>
               </div>
           </div>
@@ -57,19 +57,24 @@ const handleNext = () => {
           <div className="milieu-wrapper">
             <div className="milieu-haut-gauche">
               <h2>Un parc d'attraction immersif</h2>
-              <p>Vous pensez pouvoir échapper à l'apocalypse ? Venez mettre vos nerfs à l'épreuve et découvrez si vous avez ce qu'il faut pour survivre.</p>
+              <p>
+                Vous pensez pouvoir échapper à l'apocalypse ? Plongez dans un univers où chaque décision compte, où chaque recoin cache un danger, et où votre sang-froid sera mis à rude épreuve. 
+                Frayez-vous un chemin à travers des zones dévastées, affrontez des survivants hostiles et survivez à des épreuves intenses dans un décor plus vrai que nature.
+              </p>
             </div>
 
             <div className="milieu-bas-droite">
               <h2>Réservez vite</h2>
-              <p>Vous pouvez réserver dès maintenant sur notre site avant que les places ne soient plus disponibles.</p>
+              <p>
+                Les survivants les plus téméraires se donnent rendez-vous ici ! Réservez dès maintenant votre entrée dans notre monde post-apocalyptique, et préparez-vous à vivre une expérience inoubliable entre frissons, adrénaline et immersion totale. 
+                Attention : les places sont limitées... et la survie aussi.
+              </p>
               <NavLink to="/reservation" className="button_decouvrir">Réserver</NavLink>
             </div>
           </div>
         </section>
 
         <section className="bas">
-          <h2 className="attractions-heading">Liste des Attractions</h2>
           {attractions && attractions.length > 0 ? (
             <div className="carousel-container">
               <button className="carousel-arrow left" onClick={handlePrev}>
