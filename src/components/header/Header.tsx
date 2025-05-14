@@ -87,7 +87,7 @@ export default function Header() {
         
         {/* Menu mobile (affiché seulement quand isMenuOpen est true) */}
         <ul ref={menuRef} className={`menu-mobile ${isMenuOpen ? 'open' : ''}`}>
-          <li className='nav-link'><NavLink to="/presentation">Présentation du parc</NavLink></li>
+          <li className='nav-link'><NavLink to="/presentation">Présentation & infos</NavLink></li>
           <li className='nav-link'><NavLink to="/attractions">Nos Attractions</NavLink></li>
           <li className='nav-link'><NavLink to="/reservation">Réservation</NavLink></li>
         </ul>

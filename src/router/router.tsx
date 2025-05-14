@@ -4,6 +4,7 @@ import Root from './root';
 import HomePage from '../pages/HomePage/HomePage';
 import AttractionsPage from '../pages/attractionsPage/attractionsPage';
 import AttractionPage from '../pages/attractionPage/attractionPage';
+import PresentationPage from '../pages/presentationPage/presentationPage';
 
 
 
@@ -14,7 +15,8 @@ const router = createBrowserRouter([
         children: [
           { path: '/', element: <HomePage /> },
           { path: '/attractions', element: <AttractionsPage /> },
-          { path: '/attraction/:id', element: <AttractionPage />}
+          { path: '/attraction/:id', element: <AttractionPage />},
+          { path: '/presentation', element: <PresentationPage />}
         ],
     },
 ]);

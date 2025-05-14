@@ -1,0 +1,142 @@
+.park-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 150px 15% 4rem;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .presentation-container {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .park-subtitle {
+    font-size: 2.8rem;
+    color: crimson;
+    font-family: 'DK Face Your Fears', sans-serif;
+    margin-bottom: 3.5rem;
+  }
+  
+  .park-highlight {
+    font-size: 1.5rem;
+    color: rgb(245, 245, 245);
+    margin: 1rem 0 0.5rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+  }
+  
+  
+  .park-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #ccc;
+  }
+  
+  /* Bloc en 2 colonnes */
+  .park-all {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  /* Gauche */
+  .park-intro {
+    flex: 1 1 60%;
+    background: rgba(8, 8, 8, 0.8);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+  }
+  
+  /* Droite */
+  .park-right {
+    flex: 1 1 35%;
+    background: rgba(8, 8, 8, 0.8);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;            
+  
+    justify-content: space-between;
+  }
+  /* Titres de section */
+  .park-section-title {
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: crimson;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid crimson;
+    padding-bottom: 0.3rem;
+  }
+  
+  /* Tarifs */
+  .park-tarif-item {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .park-tarifs{
+    padding-bottom: 50px;
+  }
+  
+  .park-tarif-price {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #eeeeee;
+  }
+  
+  .park-tarif-condition {
+    font-size: 0.85rem;
+    color: #aaa;
+  }
+  
+  /* Horaires */
+  .park-schedule{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+  }
+  .park-horaires p {
+    margin: 1.5rem 0;
+    color: #eee;
+  }
+  
+  .day {
+    font-weight: 700;
+    color: #e6e3e3;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .park-all {
+      flex-direction: column;
+    }
+    .park-tarifs{
+      padding-bottom: 0px;
+    }
+    .park-intro,
+    .park-right {
+      flex: 1 1 100%;
+      padding: 1.5rem;
+    }
+    .presentation-container{
+        margin-top: 2em;
+    }
+    .park-subtitle {
+      font-size: 3rem;
+    }
+  
+    .park-highlight {
+      font-size: 1.1rem;
+    }
+    .park-page{
+      padding: 80px 5% 2rem;
+    }
+  }
+  
