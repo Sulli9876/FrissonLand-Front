@@ -325,13 +325,13 @@ main{
   .haut_h2 {
     font-size: 3rem;
     height: 250px;
-    margin: 1rem;
+    margin: 2rem;
     padding-top: 20px;
   }
   .haut_presentation {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     width: 100%;          /* s’étend sur tout le container */
     padding: 0 1rem;    
     height: auto;  /* un peu de marge latérale si besoin */
@@ -346,6 +346,7 @@ main{
     margin: 0 auto;      /* centre le bloc .desc */
   }
   .desc_1 {
+    font-size: 1.1rem;
     font-weight: bold;
     margin: 0;                       /* on enlève tout margin superflu */
   }

@@ -1,0 +1,86 @@
+/* Conteneur principal */
+.legal-container {
+    padding-top: 6rem; /* pour éviter le chevauchement avec un header fixe */
+    padding-bottom: 3rem;
+    min-height: 100vh;
+    color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Zone centrée */
+  .legal-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  }
+  
+  /* Titres principaux */
+  .legal-title {
+    font-size: 3rem;
+    color: crimson;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: 'DK Face Your Fears', sans-serif;
+  }
+  
+  /* Sections */
+  .legal-section {
+    margin-bottom: 2rem;
+  }
+  
+  .legal-section h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #ff4c4c;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.3rem;
+  }
+  
+  .legal-section p {
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+  }
+  
+  /* Liens */
+  .legal-section a {
+    color: #00bcd4;
+    text-decoration: underline;
+    transition: color 0.3s;
+  }
+  
+  .legal-section a:hover {
+    color: #00ffff;
+  }  
+  @media (max-width: 1024px) {
+    .legal-content {
+      max-width: 90%;
+      padding: 1.5rem;
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .legal-title {
+      font-size: 2.8rem;
+    }
+    .legal-content {
+      max-width: 90%;
+      padding: 1.5rem;
+    }
+  
+    .legal-title {
+      font-size: 1.8rem;
+    }
+  
+    .legal-section h3 {
+      font-size: 1.3rem;
+    }
+  
+    .legal-section p {
+      font-size: 0.95rem;
+    }
+  }
+  

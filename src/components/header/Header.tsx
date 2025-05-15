@@ -102,11 +102,11 @@ export default function Header() {
             </div>
             {isLoggedInOpen && (
               <div className={`account-menu ${isLoggedInOpen ? 'open' : ''}`}>
-                <NavLink className="booking" to={`/profile/${userId}/reservations`}>
-                  <button className="menu-btn">Mes réservations</button>
-                </NavLink>
                 <NavLink className="profile" to={`/profile/${userId}`}>
                   <button className="menu-btn">Profil</button>
+                </NavLink>
+                <NavLink className="booking" to={`/profile/${userId}/reservations`}>
+                  <button className="menu-btn">Mes réservations</button>
                 </NavLink>
                 <button className="log-out menu-btn" onClick={handleLogout}>Déconnexion</button>
               </div>

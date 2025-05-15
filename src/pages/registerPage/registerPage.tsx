@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../../../config';
+import { GoogleLogin } from '@react-oauth/google';
+
+
 
 const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
@@ -13,6 +16,9 @@ const RegisterPage: React.FC = () => {
   const [signupConfirmPassword, setSignupConfirmPassword] = useState('');
   const [signupError, setSignupError] = useState('');
   const [signupSuccess, setSignupSuccess] = useState('');
+  const [loginError, setLoginError] = useState('');
+
+
   const validateForm = () => {
     if (!signupFirstname || !signupLastname ||  !signupEmail || !signupPassword || !signupConfirmPassword) {
       setSignupError('Tous les champs sont requis.');
@@ -131,6 +137,28 @@ const RegisterPage: React.FC = () => {
 
             {signupSuccess && <p className="auth-success-message">{signupSuccess}</p>}
           </form>
+           <GoogleLogin
+                          onSuccess={async (credentialResponse) => {
+                              const res = await fetch(`${API_BASE_URL}/auth/loginGoogle`, {
+                              method: 'POST',
+                              headers: { 'Content-Type': 'application/json' },
+                              body: JSON.stringify({ token: credentialResponse.credential }),
+                              });
+          
+                              const data = await res.json();
+          
+                              if (res.ok) {
+                              localStorage.setItem('token', data.token);
+                              navigate('/');
+                              window.location.reload();
+                              } else {
+                              setLoginError(data.message || 'Erreur Google');
+                              }
+                          }}
+                          onError={() => {
+                              setLoginError('Connexion Google échouée');
+                          }}
+                          />
         </div>
       </div>
     </main>

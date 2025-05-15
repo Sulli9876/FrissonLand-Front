@@ -1,3 +1,4 @@
+
 export interface Iattractions{
     id : string;
     name : string;
@@ -20,34 +21,44 @@ export interface Ireviews {
       first_name: string;
       last_name: string;
     };
+    attraction: {
+      id : string;
+    name : string;
+    description : string;
+    image : string;
+    duration : string;
+
+    };
   }
 export interface Icategory{
     id : string;
     name : string;
     
 }
+export interface Ibooking {
+  id: number;
+  reservation_number: string;
+  visit_date: string;        // format ISO date string, ex: "2025-05-15"
+  ticketId: number;          // correspond à ticket.id (attention au camelCase)
+  quantity: number;  
+  ticket: Iticket;        // nombre de billets pour ce ticket dans cette réservation
+}
+
 export interface Iticket {
-    id: number;
-    value: number;
-    name: string;
-    created_at: string;
-    updated_at: string;
+  id: number;
+  name: string;
+  value: number; 
 }
 
 export interface TicketsResponse {
     tickets: Iticket[];
 }
 
-export interface Ibooking {
-    id : string
-    reservation_number: string;
-    visit_date: string;
-    quantity: Record<number, number>; // 'Record<number, number>' indique que c'est un objet avec des clés de type number et des valeurs de type number
-    ticket_id : number;
-    user_id : number;
-    totalPrice: number; // Ajoutez ceci
-
-  }
+export interface IReservationGroup {
+  reservation_number: string;
+  visit_date: string;
+  bookings: Ibooking[];
+}
 
   export interface Iuser {
     id: number;

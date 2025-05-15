@@ -107,7 +107,7 @@ const prevReview = () => {
     };
 
     try {
-      const res = await fetch(`${API_BASE_URL}/review`, {
+      const res = await fetch(`${API_BASE_URL}/auth/review`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -116,8 +116,18 @@ const prevReview = () => {
         body: JSON.stringify(reviewData),
       });
 
-      if (!res.ok) throw new Error('Échec de l\'envoi');
 
+      if (!res.ok) {
+        const errorData = await res.json();
+  
+        // Vérifie si l'erreur vient du fait que l'avis existe déjà
+        if (res.status === 400 && errorData.message === 'Review already exists for this attraction by the same user') {
+          setFormError('Vous avez déjà posté un avis pour cette attraction.');
+        } else {
+          setFormError('Erreur lors de l\'envoi de l\'avis.');
+        }
+        return;
+      }
       const newReviewObj = await res.json();
       setReviews((prev) => [newReviewObj, ...prev]);
       setIsModalOpen(false);
@@ -172,17 +182,19 @@ const prevReview = () => {
             ))}
           </div>
           <div className="review-meta">
-            <span className="review-name">
-              {`${currentReview.user.first_name} ${currentReview.user.last_name}`}
-            </span>
-            <span className="review-date">
-              {new Date(currentReview.createdAt).toLocaleDateString('fr-FR', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}
-            </span>
-          </div>
+  <span className="review-name">
+    {currentReview.user
+      ? `${currentReview.user.first_name} ${currentReview.user.last_name}`
+      : 'Utilisateur inconnu'}
+  </span>
+  <span className="review-date">
+    {new Date(currentReview.createdAt).toLocaleDateString('fr-FR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })}
+  </span>
+</div>
         </div>
         <p className="review-comment">{currentReview.commentaire}</p>
       </div>

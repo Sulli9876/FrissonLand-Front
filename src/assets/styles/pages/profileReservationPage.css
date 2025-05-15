@@ -1,0 +1,205 @@
+/* Conteneur principal */
+.profile-reservations {
+    width: 100%;
+    max-width: 80%;
+    margin: 5rem auto 2rem; /* pour éviter que le h3 soit caché sous le header */
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    color: #eee;
+  }
+  
+  /* Titre */
+  .profile-reservations h3 {
+    font-size: 2rem;
+    color: #ff3c3c;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  /* Chaque réservation */
+  .reservation-item {
+    display: flex;
+    gap: 1.5rem;
+    background-color: #1c1c1c;
+    padding: 1.2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.25);
+  }
+  
+  /* Image du ticket */
+  .ticket-image {
+    width: 300px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  /* Partie droite de la réservation */
+  .reservation-details {
+    flex: 1;
+  }
+  
+  /* Sous-titre de la réservation */
+  .reservation-details h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.3rem;
+    color: #ff4c4c;
+  }
+  
+  .reservation-details p {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Liste de billets */
+  .ticket-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  
+  .ticket-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.6rem;
+    background-color: #2a2a2a;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+  }
+  
+  /* Champ édition */
+  .ticket-line input[type="number"] {
+    width: 60px;
+    padding: 0.3rem;
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+    border-radius: 6px;
+    margin-right: 0.5rem;
+  }
+  
+  /* Bouton modifier */
+  .ticket-line button {
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .ticket-line button:hover {
+    background-color: #c73232;
+  }
+  
+  /* Total */
+  .reservation-total {
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #00e676;
+    margin-top: 0.8rem;
+  }
+  
+  /* Boutons annuler */
+  .reservation-buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .reservation-buttons button {
+    background-color: crimson;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .reservation-buttons button:hover {
+    background-color: #a10000;
+  }
+  
+  /* MODALE */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+  
+  .modal {
+    background-color: #222;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    color: white;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.5rem;
+  }
+  
+  .modal-buttons button {
+    background-color: crimson;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .modal-buttons button:hover {
+    background-color: #c30000;
+  }
+  
+  /* MOBILE / RESPONSIVE */
+  @media (max-width: 768px) {
+    .profile-reservations {
+      max-width: 95%;
+      padding: 1rem;
+    }
+  
+    .reservation-item {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .ticket-image {
+      width: 100%;
+      height: auto;
+      max-width: 300px;
+    }
+  
+    .ticket-line {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  
+    .reservation-buttons {
+      justify-content: center;
+    }
+  
+    .modal {
+      padding: 1.5rem;
+    }
+  }
+  

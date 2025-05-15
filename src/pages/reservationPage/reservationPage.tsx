@@ -126,8 +126,7 @@ export default function ReservationPage() {
                         </td>
                       </tr>
                     ))}
-                    <p className={`form-error ${ticketError ? 'visible' : ''}`}>{ticketError || '\u00A0'}</p>
-                    <tr>
+                    <tr> 
                       <td colSpan={2}>
                         <div className="date-picker-wrapper">
                           <label>Choix de la date :</label>
@@ -146,6 +145,7 @@ export default function ReservationPage() {
                     </tr>
                   </tbody>
                 </table>
+                          <p className={`form-error ${ticketError ? 'visible' : ''}`}>{ticketError || '\u00A0'}</p>
                 <p className={`form-error ${dateError ? 'visible' : ''}`}>{dateError || '\u00A0'}</p>
                                     {authError && (
                     <div className="auth-error-message">
