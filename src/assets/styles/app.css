@@ -45,6 +45,13 @@ body {
     position: relative;
     z-index: 2; /* pour que ton contenu soit au-dessus du filtre */
   }
+  p {
+    font-family: 'Roboto', sans-serif; }
+
+    h3 , h4{
+      font-family: 'Cinzel Decorative';  }
+
+    
   @media screen and (max-width: 768px) {
     main{
       padding-top: 45px;

@@ -1,11 +1,11 @@
 
 export interface Iattractions{
-    id : string;
+    id : number;
     name : string;
     description : string;
     image : string;
     duration : string;
-    category_id: 1
+    category_id: number;
 
 }
 export interface Ireviews {
@@ -31,7 +31,7 @@ export interface Ireviews {
     };
   }
 export interface Icategory{
-    id : string;
+    id : number;
     name : string;
     
 }
@@ -64,7 +64,6 @@ export interface IReservationGroup {
     id: number;
     name: string;
     email: string;
-    address: string;
     password: string;
     created_at: string;
     updated_at: string;

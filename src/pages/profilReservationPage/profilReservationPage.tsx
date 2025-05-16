@@ -61,7 +61,7 @@ export default function ProfilReservationPage() {
   }, []);
 
   return (
-    <div className="profile-reviews profile-reservations">
+    <div className=" profile-reservations">
       <h3>Mes Réservations</h3>
 
       {reservations.length === 0 ? (

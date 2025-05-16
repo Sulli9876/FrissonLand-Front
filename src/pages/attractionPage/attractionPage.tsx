@@ -149,7 +149,7 @@ const prevReview = () => {
     
       <section className="attraction-left">
         <img
-            src={`/public/${attraction.image}`}
+            src={attraction.image}
             alt={`Image de ${attraction.name}`}
           className="attraction-image"
         />

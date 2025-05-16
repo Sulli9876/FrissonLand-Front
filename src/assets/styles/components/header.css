@@ -76,8 +76,7 @@ header {
 }
 .icon:hover {
   fill: rgb(255, 0, 0);
-  width: 50px;
-  height: 50px;
+  
 }
 
 /* Wrapper autour de l'icône */
@@ -202,7 +201,7 @@ header {
     position: absolute;
     top: calc(100% + 0px);
     left: 0;
-    width: 240px;
+    width: 54%;
     background-color: rgba(9, 9, 9, 0.8);
     border-radius: 0 0 10% 0;
     padding: 10px 10px 10px 10px;
@@ -262,7 +261,7 @@ header {
     position: absolute;
     top: calc(100% + 0px);
     right: 0;
-    width: 179px;
+    width: 45%;
     height: auto;
     border-radius: 0 0 0 10%;
     padding: 10px 10px 10px 10px;

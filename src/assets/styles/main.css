@@ -13,3 +13,5 @@
 @import './pages/profileReservationPage.css';
 @import './pages/contactPage.css';
 @import './pages/legalMentionPage.css'; 
+@import './backOffice/dashboard.css';
+@import './backOffice/globalBackOffice.css'

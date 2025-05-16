@@ -183,7 +183,7 @@ const ProfilPage: React.FC = () => {
 
   return (
     <main className='profile-page'>
-      <h2 className="profile-title">Page de Profil</h2>
+      <h2 className="profile-title">Mon Profil</h2>
 
       {successMessage && <p style={{ color: 'green', textAlign: 'center' }}>{successMessage}</p>}
       {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}

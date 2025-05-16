@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react';
+import React , { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useRootContext } from '../../router/root';
 import { Iattractions, Icategory } from '../../type/types';
-import React from 'react';
 import { API_BASE_URL } from '../../../config';
 
 export default function AttractionsPage() {

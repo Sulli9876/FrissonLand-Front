@@ -12,6 +12,8 @@ import ProfilPage from '../pages/profilPage/profilPage';
 import ProfilReservationPage from '../pages/profilReservationPage/profilReservationPage';
 import ContactPage from '../pages/contactPage/contactPage';
 import LegalMentionPage from '../pages/legalMentionPage/legalMentionPage';
+import Dashboard from '../pages/backOffice/dashboard';
+import BackOfficeAttractions from '../pages/backOffice/backOfficeAttractions';
 
 
 
@@ -32,7 +34,9 @@ const router = createBrowserRouter([
           { path : '/profile/:id' , element : <ProfilPage/>},
           { path : '/profile/:id/reservations' , element : <ProfilReservationPage/>},
           { path: '/contact', element: <ContactPage /> },
-          { path : '/mentionsLegales', element : <LegalMentionPage/>}
+          { path : '/mentionsLegales', element : <LegalMentionPage/>},
+          { path : '/backOffice', element : <Dashboard/>},
+          { path : '/backOffice/attractions', element : <BackOfficeAttractions/>}
         ],
     },
 ]);

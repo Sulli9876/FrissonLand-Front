@@ -1,0 +1,138 @@
+/* Container principal */
+.backoffice {
+    padding-top: 120px; /* espace sous header */
+    color: #fff;
+    min-height: 100vh;
+    padding-left: 20%;
+    padding-right: 20%;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Titre principal */
+  .backoffice-attractions > h2 {
+    text-align: center;
+    font-family: 'DK Face Your Fears', sans-serif;
+    font-size: 3rem;
+    color: crimson;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 4px black;
+  }
+  
+  /* Bouton d’ajout */
+  .backoffice-attractions > button {
+    display: block;
+    margin: 0 auto 2rem;
+    background-color: crimson;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .backoffice-attractions > button:hover {
+    background-color: #a10000;
+  }
+  
+  /* Liste des attractions */
+  .backoffice-attractions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  /* Chaque item */
+  .backoffice-attractions li {
+    background: rgba(8, 8, 8, 0.85);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* Mode affichage */
+  .backoffice-attractions li strong {
+    font-size: 1.2rem;
+    color: crimson;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Boutons actions */
+  .backoffice-attractions li > button {
+    background-color: crimson;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+    margin-right: 0.5rem;
+  }
+  .backoffice-attractions li > button:hover {
+    background-color: #a10000;
+    transform: translateY(-2px);
+  }
+  
+  /* Formulaire inline */
+  .backoffice-attractions li input[type="text"],
+  .backoffice-attractions li input[type="time"],
+  .backoffice-attractions li select {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #333;
+    color: #eee;
+    font-size: 1rem;
+    outline: none;
+    transition: background-color 0.3s;
+  }
+  .backoffice-attractions li input:focus,
+  .backoffice-attractions li select:focus {
+    background-color: #444;
+  }
+  
+  /* Aperçu image */
+  .backoffice-attractions li img {
+    max-width: 200px;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+  }
+  
+  /* Conteneur des boutons "Sauvegarder" & "Annuler" */
+  .backoffice-attractions li button + button {
+    margin-left: 0.5rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 800px) {
+    .backoffice {
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+    .backoffice-attractions > h2 {
+      font-size: 2.2rem;
+    }
+    .backoffice-attractions ul {
+      gap: 1rem;
+    }
+    .backoffice-attractions li {
+      padding: 0.8rem;
+    }
+    .backoffice-attractions li input,
+    .backoffice-attractions li select {
+      font-size: 0.9rem;
+    }
+    .backoffice-attractions li > button {
+      padding: 0.5rem 0.8rem;
+      font-size: 0.9rem;
+    }
+  }
+  

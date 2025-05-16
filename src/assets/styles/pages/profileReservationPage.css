@@ -1,19 +1,17 @@
 /* Conteneur principal */
 .profile-reservations {
     width: 100%;
-    max-width: 80%;
-    margin: 5rem auto 2rem; /* pour éviter que le h3 soit caché sous le header */
-    padding: 2rem;
-    background-color: rgba(0, 0, 0, 0.9);
+    max-width: 100%;
+    padding: 120px 10% 3rem;
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
     color: #eee;
   }
   
   /* Titre */
   .profile-reservations h3 {
-    font-size: 2rem;
-    color: #ff3c3c;
+    font-size: 3rem;
+    color: crimson;
+    font-family: 'DK Face Your Fears', sans-serif;
     margin-bottom: 2rem;
     text-align: center;
   }
@@ -22,9 +20,9 @@
   .reservation-item {
     display: flex;
     gap: 1.5rem;
-    background-color: #1c1c1c;
     padding: 1.2rem;
     border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.9);
     margin-bottom: 2rem;
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.25);
   }
@@ -46,7 +44,7 @@
   .reservation-details h4 {
     margin: 0 0 0.5rem;
     font-size: 1.3rem;
-    color: #ff4c4c;
+    color: crimson;
   }
   
   .reservation-details p {
@@ -83,7 +81,7 @@
   
   /* Bouton modifier */
   .ticket-line button {
-    background-color: #ff4c4c;
+    background-color: crimson;
     color: white;
     border: none;
     padding: 0.3rem 0.7rem;
@@ -93,7 +91,7 @@
   }
   
   .ticket-line button:hover {
-    background-color: #c73232;
+    background-color: crimson;
   }
   
   /* Total */

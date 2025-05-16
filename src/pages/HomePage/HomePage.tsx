@@ -38,15 +38,15 @@ const handleNext = () => {
             <h2 className="haut_h2">Bienvenue</h2>
             <div className="haut_presentation">
                 <div className="desc">
-                  <p className="desc_1">GENRE :</p>
+                  <h3 className="desc_1">GENRE :</h3>
                   <p>HORREUR</p>
                 </div>
                 <div className="desc">
-                  <p className="desc_1">AGE :</p>
+                  <h3 className="desc_1">AGE :</h3>
                   <p>18 ans et +</p>
                 </div>
                 <div className="desc">
-                  <p className="desc_1">NIVEAU DE PEUR :</p>
+                  <h3 className="desc_1">NIVEAU DE PEUR :</h3>
                   <p>🕱🕱🕱🕱🕱</p>
                 </div>
               </div>
