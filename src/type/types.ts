@@ -41,7 +41,8 @@ export interface Ibooking {
   visit_date: string;        // format ISO date string, ex: "2025-05-15"
   ticketId: number;          // correspond à ticket.id (attention au camelCase)
   quantity: number;  
-  ticket: Iticket;        // nombre de billets pour ce ticket dans cette réservation
+  ticket: Iticket;  
+  user : Iuser      // nombre de billets pour ce ticket dans cette réservation
 }
 
 export interface Iticket {
@@ -62,12 +63,18 @@ export interface IReservationGroup {
 
   export interface Iuser {
     id: number;
-    name: string;
-    email: string;
+    first_name:  string;
+    last_name: string;
+    mail: string;
     password: string;
     created_at: string;
     updated_at: string;
   }
+export interface MyJwtPayload {
+  id: string;
+  role: string;
+  // ajoute d'autres champs que ton token contient
+};
 
 export type RootContext = {
     attractions: Iattractions[];
@@ -77,3 +84,4 @@ export type RootContext = {
     setTickets:React.Dispatch<React.SetStateAction<Iticket[]>>;
     setCategories: React.Dispatch<React.SetStateAction<Icategory[]>>;
   };
+  

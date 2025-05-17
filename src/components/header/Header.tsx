@@ -2,19 +2,37 @@ import { useEffect, useRef, useState } from 'react';
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
+import { Navigate } from 'react-router-dom';
 import AccountIcon from '../../../public/images/account.svg?react';
 import BurgerMenu from '../../../public/images/burgerMenu.svg?react';
 import CloseIcon from '../../../public/images/closeIcon.svg?react';
+import { MyJwtPayload } from '../../type/types';
+
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedInOpen, setIsLoggedInOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userId, setUserId] = useState(null);
-  const navigate = useNavigate();
+  const [userId, setUserId] = useState<string | null>(null);  
+  const [isAdmin, setIsAdmin] = useState(false);  const navigate = useNavigate();
 
   // Typage explicite de menuRef pour éviter l'erreur TypeScript
   const menuRef = useRef<HTMLUListElement | null>(null);
+ 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      try {
+        const decodedToken: any = jwtDecode(token);
+        setIsAdmin(decodedToken.role === "admin");
+        // Autres setIsLoggedIn, setUserId ici aussi
+      } catch (error) {
+        setIsAdmin(false);
+      }
+    } else {
+      setIsAdmin(false);
+    }
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -41,7 +59,7 @@ export default function Header() {
       try {
         if (token) {
           // Décoder le token pour obtenir l'ID utilisateur
-          const decodedToken = jwtDecode(token);
+          const decodedToken = jwtDecode<MyJwtPayload>(token);
           console.log("Decoded Token:", decodedToken)
           setIsLoggedIn(true);
           setUserId(decodedToken.id);
@@ -108,6 +126,12 @@ export default function Header() {
                 <NavLink className="booking" to={`/profile/${userId}/reservations`}>
                   <button className="menu-btn">Mes réservations</button>
                 </NavLink>
+                 {/* Affichage conditionnel pour admin */}
+                 {isAdmin && (
+              <NavLink to="/backOffice">
+                <button className="menu-btn">BackOffice</button>
+              </NavLink>
+            )}
                 <button className="log-out menu-btn" onClick={handleLogout}>Déconnexion</button>
               </div>
             )}

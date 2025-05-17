@@ -1,6 +1,7 @@
-/* Container principal */
+/* === Styles globaux backoffice === */
+
 .backoffice {
-    padding-top: 120px; /* espace sous header */
+    padding-top: 120px;
     color: #fff;
     min-height: 100vh;
     padding-left: 20%;
@@ -8,18 +9,50 @@
     font-family: 'Roboto', sans-serif;
   }
   
-  /* Titre principal */
-  .backoffice-attractions > h2 {
+  /* Titres principaux */
+  .backoffice h2,
+  .backoffice h3 {
     text-align: center;
-    font-family: 'DK Face Your Fears', sans-serif;
-    font-size: 3rem;
+    font-family: 'DK Face Your Fears', cursive, sans-serif;
     color: crimson;
-    margin-bottom: 2rem;
     text-shadow: 1px 1px 4px black;
+    margin-bottom: 1.5rem;
   }
   
-  /* Bouton d’ajout */
-  .backoffice-attractions > button {
+  .backoffice h2 {
+    font-size: 3rem;
+  }
+  
+  .backoffice h3 {
+    font-size: 2rem;
+  }
+  
+  /* === Navigation onglets backoffice-admin === */
+  .backoffice-admin nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .backoffice-admin nav button {
+    background-color: crimson;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .backoffice-admin nav button.active,
+  .backoffice-admin nav button:hover {
+    background-color: #a10000;
+  }
+  
+  /* === Boutons d'ajout === */
+  .backoffice button.add-btn {
     display: block;
     margin: 0 auto 2rem;
     background-color: crimson;
@@ -31,22 +64,24 @@
     cursor: pointer;
     transition: background 0.3s ease;
   }
-  .backoffice-attractions > button:hover {
+  
+  .backoffice button.add-btn:hover {
     background-color: #a10000;
   }
   
-  /* Liste des attractions */
-  .backoffice-attractions ul {
+  /* === Listes communes à tous les backoffice === */
+  .backoffice ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto 2rem;
+    max-width: 800px;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
   }
   
   /* Chaque item */
-  .backoffice-attractions li {
+  .backoffice ul li {
     background: rgba(8, 8, 8, 0.85);
     padding: 1rem;
     border-radius: 12px;
@@ -56,15 +91,16 @@
     gap: 1rem;
   }
   
-  /* Mode affichage */
-  .backoffice-attractions li strong {
+  /* Texte fort dans les items */
+  .backoffice ul li strong {
     font-size: 1.2rem;
     color: crimson;
     margin-bottom: 0.5rem;
   }
   
-  /* Boutons actions */
-  .backoffice-attractions li > button {
+  /* Boutons dans les items */
+  .backoffice ul li > button,
+  .backoffice ul li button.action-btn {
     background-color: crimson;
     color: white;
     border: none;
@@ -74,16 +110,19 @@
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s;
     margin-right: 0.5rem;
+    align-self: flex-start;
   }
-  .backoffice-attractions li > button:hover {
+  
+  .backoffice ul li > button:hover,
+  .backoffice ul li button.action-btn:hover {
     background-color: #a10000;
     transform: translateY(-2px);
   }
   
-  /* Formulaire inline */
-  .backoffice-attractions li input[type="text"],
-  .backoffice-attractions li input[type="time"],
-  .backoffice-attractions li select {
+  /* Inputs et selects inline dans les listes */
+  .backoffice ul li input[type="text"],
+  .backoffice ul li input[type="time"],
+  .backoffice ul li select {
     width: 100%;
     padding: 0.6rem;
     border-radius: 8px;
@@ -94,45 +133,159 @@
     outline: none;
     transition: background-color 0.3s;
   }
-  .backoffice-attractions li input:focus,
-  .backoffice-attractions li select:focus {
+  
+  .backoffice ul li input:focus,
+  .backoffice ul li select:focus {
     background-color: #444;
   }
   
-  /* Aperçu image */
-  .backoffice-attractions li img {
+  /* Aperçu image dans les items */
+  .backoffice ul li img {
     max-width: 200px;
     border-radius: 8px;
     margin-top: 0.5rem;
   }
   
-  /* Conteneur des boutons "Sauvegarder" & "Annuler" */
-  .backoffice-attractions li button + button {
-    margin-left: 0.5rem;
+  /* === Modals === */
+  
+  .modal-backdrop,
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
   }
   
-  /* Responsive */
+  .modal,
+  .modal-content {
+    background-color: #222;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 400px;
+    width: 90%;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 0 20px crimson;
+  }
+  
+  .modal h3 {
+    margin-bottom: 1rem;
+    color: crimson;
+  }
+  
+  .modal p,
+  .modal-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+  
+  /* Boutons dans modals */
+  .modal button,
+  .modal-content button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 0.5rem;
+    transition: background 0.3s ease;
+  }
+  
+  .modal button.btn-danger,
+  .modal-content button.btn-danger {
+    background-color: crimson;
+    color: #fff;
+  }
+  
+  .modal button.btn-danger:hover,
+  .modal-content button.btn-danger:hover {
+    background-color: #a10000;
+  }
+  
+  .modal button.btn-secondary,
+  .modal-content button.btn-secondary {
+    background-color: #555;
+    color: #eee;
+  }
+  
+  .modal button.btn-secondary:hover,
+  .modal-content button.btn-secondary:hover {
+    background-color: #333;
+  }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .modal-content input {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .btn-secondary {
+    background-color: gray;
+    color: white;
+  }
+  
+  
+  /* === Responsive === */
   @media (max-width: 800px) {
     .backoffice {
       padding-left: 5%;
       padding-right: 5%;
     }
-    .backoffice-attractions > h2 {
+    .backoffice h2 {
       font-size: 2.2rem;
     }
-    .backoffice-attractions ul {
+    .backoffice h3 {
+      font-size: 1.5rem;
+    }
+    .backoffice ul {
       gap: 1rem;
     }
-    .backoffice-attractions li {
+    .backoffice ul li {
       padding: 0.8rem;
     }
-    .backoffice-attractions li input,
-    .backoffice-attractions li select {
+    .backoffice ul li input,
+    .backoffice ul li select,
+    .backoffice ul li button {
       font-size: 0.9rem;
-    }
-    .backoffice-attractions li > button {
       padding: 0.5rem 0.8rem;
-      font-size: 0.9rem;
+    }
+    .backoffice-admin nav {
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
   }
   

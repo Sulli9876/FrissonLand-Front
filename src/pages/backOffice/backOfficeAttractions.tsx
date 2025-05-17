@@ -1,35 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { useRootContext } from "../../router/root";
-import { API_BASE_URL } from "../../../config";
 import { Iattractions, Icategory } from "../../type/types";
+import DeleteModal from "./deleteModal";
 
-export default function BackOfficeAttractions() {
+interface BackOfficeAttractionsProps {
+  token: string;
+  apiBaseUrl: string;
+}
+
+export default function BackOfficeAttractions({ token, apiBaseUrl }: BackOfficeAttractionsProps) {
   const { attractions, setAttractions } = useRootContext();
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editedAttraction, setEditedAttraction] = useState<Partial<Iattractions>>({});
   const [categories, setCategories] = useState<Icategory[]>([]);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [attractionToDelete, setAttractionToDelete] = useState<number | null>(null);
-  const token = localStorage.getItem("token") || "";
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/categories`)
+    fetch(`${apiBaseUrl}/categories`)
       .then(res => res.json())
       .then(data => setCategories(data.categories))
       .catch(err => console.error("Erreur de chargement des catégories :", err));
-  }, []);
+  }, [apiBaseUrl]);
 
-  // Affiche la modale et mémorise l'id de l'attraction à supprimer
   const confirmDelete = (id: number) => {
     setAttractionToDelete(id);
-    setShowDeleteModal(true);
-  };
+    setShowModal(true);  };
 
-  // Supprime l'attraction confirmée dans la modale
-  const handleDeleteConfirmed = () => {
+  const handleDelete = () => {
     if (attractionToDelete === null) return;
 
-    fetch(`${API_BASE_URL}/admin/attractions/${attractionToDelete}`, {
+    fetch(`${apiBaseUrl}/admin/attractions/${attractionToDelete}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -42,12 +43,12 @@ export default function BackOfficeAttractions() {
       })
       .then(() => {
         setAttractions(attractions.filter((a) => a.id !== attractionToDelete));
-        setShowDeleteModal(false);
+         setShowModal(false);
         setAttractionToDelete(null);
       })
       .catch((err) => {
         console.error(err);
-        setShowDeleteModal(false);
+         setShowModal(false);
         setAttractionToDelete(null);
       });
   };
@@ -69,7 +70,7 @@ export default function BackOfficeAttractions() {
       return;
     }
 
-    fetch(`${API_BASE_URL}/admin/attractions/${id}`, {
+    fetch(`${apiBaseUrl}/admin/attractions/${id}`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -101,7 +102,7 @@ export default function BackOfficeAttractions() {
       duration: "00:00:00",
       category_id: categories[0].id,
     };
-    fetch(`${API_BASE_URL}/admin/attractions`, {
+    fetch(`${apiBaseUrl}/admin/attractions`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -130,9 +131,9 @@ export default function BackOfficeAttractions() {
   };
 
   return (
-    <main className="backoffice backoffice-attractions">
+     <main className="backoffice backoffice-attractions">
       <h2>Attractions</h2>
-      <button onClick={handleCreate}>➕ Ajouter une attraction</button>
+      <button onClick={handleCreate} className="add-btn">➕ Ajouter une attraction</button>
 
       <ul>
         {attractions.map((attraction) => (
@@ -187,35 +188,31 @@ export default function BackOfficeAttractions() {
                   <img
                     src={editedAttraction.image}
                     alt="Aperçu de l'attraction"
-                    style={{ width: "200px", marginTop: "10px" }}
                   />
                 )}
 
-                <button onClick={() => handleSave(attraction.id)}>💾 Sauvegarder</button>
-                <button onClick={() => setEditingId(null)}>❌ Annuler</button>
+                <button onClick={() => handleSave(attraction.id)} className="action-btn">💾 Sauvegarder</button>
+                <button onClick={() => setEditingId(null)} className="action-btn">❌ Annuler</button>
               </>
             ) : (
               <>
                 <strong>{attraction.name}</strong> — {attraction.description}
-                <button onClick={() => handleEdit(attraction)}>✏️ Modifier</button>
-                <button onClick={() => confirmDelete(attraction.id)}>🗑️ Supprimer</button>
+                <div>
+                  <button onClick={() => handleEdit(attraction)} className="action-btn">✏️ Modifier</button>
+                  <button onClick={() => confirmDelete(attraction.id)} className="action-btn">🗑️ Supprimer</button>
+                </div>
               </>
             )}
           </li>
         ))}
       </ul>
 
-      {/* Modale de confirmation */}
-      {showDeleteModal && (
-        <div className="modal-backdrop">
-          <div className="modal">
-            <h3>Confirmer la suppression</h3>
-            <p>Êtes-vous sûr de vouloir supprimer cette attraction ?</p>
-            <button onClick={handleDeleteConfirmed}>Oui, supprimer</button>
-            <button onClick={() => setShowDeleteModal(false)}>Annuler</button>
-          </div>
-        </div>
-      )}
+      <DeleteModal
+              show={showModal}
+              onClose={() => setShowModal(false)}
+              onConfirm={handleDelete}
+              message="Voulez-vous vraiment supprimer cette catégorie ?" // ou "ticket", "réservation", etc.
+            />
     </main>
   );
 }

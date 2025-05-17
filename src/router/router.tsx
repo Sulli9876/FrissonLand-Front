@@ -14,9 +14,20 @@ import ContactPage from '../pages/contactPage/contactPage';
 import LegalMentionPage from '../pages/legalMentionPage/legalMentionPage';
 import Dashboard from '../pages/backOffice/dashboard';
 import BackOfficeAttractions from '../pages/backOffice/backOfficeAttractions';
+import BackOfficeTickets from '../pages/backOffice/backOfficeTickets';
+import BackOfficeCategories from '../pages/backOffice/backOfficeCategories';
+import BackOfficeUsers from '../pages/backOffice/backOfficeUsers';
+import BackOfficeReservations from '../pages/backOffice/backOfficeReservations';
+import BackOfficeReviews from '../pages/backOffice/backOfficeReviews';
+import { API_BASE_URL } from '../../config';
+import NotFound from '../pages/ErrorsPage/notFound';
+import BackOfficeAdmin from '../pages/backOffice/backOfficeMain';
+import ProtectedAdminRoute from './protectedAdminRoute';
+import UnauthorizedPage from '../pages/ErrorsPage/UnauthorizedPage';
 
 
 
+const token = localStorage.getItem("token") || "";
 
 
 const router = createBrowserRouter([
@@ -35,9 +46,24 @@ const router = createBrowserRouter([
           { path : '/profile/:id/reservations' , element : <ProfilReservationPage/>},
           { path: '/contact', element: <ContactPage /> },
           { path : '/mentionsLegales', element : <LegalMentionPage/>},
-          { path : '/backOffice', element : <Dashboard/>},
-          { path : '/backOffice/attractions', element : <BackOfficeAttractions/>}
+          { path : '/backOffice', element : 
+          <ProtectedAdminRoute>
+            <BackOfficeAdmin  />
+          </ProtectedAdminRoute>},
+          { path : '/backOffice/users', element : <ProtectedAdminRoute><BackOfficeUsers  token={token} apiBaseUrl={API_BASE_URL} /></ProtectedAdminRoute>},
+          { path : '/backOffice/categories', element : <ProtectedAdminRoute><BackOfficeCategories  token={token} apiBaseUrl={API_BASE_URL} /></ProtectedAdminRoute>},
+          { path : '/backOffice/tickets', element : <ProtectedAdminRoute><BackOfficeTickets  token={token} apiBaseUrl={API_BASE_URL} /></ProtectedAdminRoute>},
+          { path : '/backOffice/reservations', element : <ProtectedAdminRoute><BackOfficeReservations  token={token} apiBaseUrl={API_BASE_URL} /></ProtectedAdminRoute>},
+          { path : '/backOffice/attractions', element : <ProtectedAdminRoute><BackOfficeAttractions  token={token} apiBaseUrl={API_BASE_URL} /></ProtectedAdminRoute>},
+          { path : '/backOffice/avis', element : <ProtectedAdminRoute><BackOfficeReviews  token={token} apiBaseUrl={API_BASE_URL} /></ProtectedAdminRoute>},
+          { path : "*" , element : <NotFound /> } ,
+          { path: '/unauthorized', element: <UnauthorizedPage /> },
+
+          
+          
+          
         ],
+        
     },
 ]);
 export default router;
