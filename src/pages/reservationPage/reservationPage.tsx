@@ -106,7 +106,7 @@ export default function ReservationPage() {
       
             <div className="reservation-content">
               <div className="reservation-image">
-                <img src="/public/images/ticket2.webp" alt="image du ticket"   loading="lazy"/>
+                <img src="/images/ticket2.webp" alt="image du ticket"   loading="lazy"/>
               </div>
       
               <div className="reservation-form">

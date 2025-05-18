@@ -18,7 +18,7 @@ body {
        avant (donc au-dessus) de l'image fixe */
     background: 
       linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url('/public/images/bg3.webp') no-repeat center center fixed;
+      url('/images/bg3.webp') no-repeat center center fixed;
     
     /* Ajuste la taille du fond en "cover" pour qu'il remplisse toujours l'écran */
     background-size: cover;

@@ -77,7 +77,7 @@ export default function ProfilReservationPage() {
           return (
             <div key={res.reservation_number} className="reservation-item flex">
               <img  
-                src="/public/images/ticket2.webp"
+                src="/images/ticket2.webp"
                 alt="Ticket"
                 className="ticket-image"
               />
