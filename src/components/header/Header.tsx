@@ -18,7 +18,9 @@ export default function Header() {
 
   // Typage explicite de menuRef pour éviter l'erreur TypeScript
   const menuRef = useRef<HTMLUListElement | null>(null);
- 
+  const handleMobileLinkClick = () => {
+    setIsMenuOpen(false);
+  };
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -105,9 +107,9 @@ export default function Header() {
         
         {/* Menu mobile (affiché seulement quand isMenuOpen est true) */}
         <ul ref={menuRef} className={`menu-mobile ${isMenuOpen ? 'open' : ''}`}>
-          <li className='nav-link'><NavLink to="/presentation">Présentation & infos</NavLink></li>
-          <li className='nav-link'><NavLink to="/attractions">Nos Attractions</NavLink></li>
-          <li className='nav-link'><NavLink to="/reservation">Réservation</NavLink></li>
+          <li className='nav-link'><NavLink onClick={handleMobileLinkClick} to="/presentation">Présentation & infos</NavLink></li>
+          <li className='nav-link'><NavLink onClick={handleMobileLinkClick} to="/attractions">Nos Attractions</NavLink></li>
+          <li className='nav-link'><NavLink onClick={handleMobileLinkClick} to="/reservation">Réservation</NavLink></li>
         </ul>
       </nav>
 
