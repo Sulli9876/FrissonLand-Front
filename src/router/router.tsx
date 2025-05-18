@@ -27,6 +27,7 @@ import UnauthorizedPage from '../pages/ErrorsPage/UnauthorizedPage';
 import ResetPasswordPage from '../pages/loginPage/ResetPassword';
 import ForgotPasswordPage from '../pages/loginPage/ForgotPassword';
 import ProtectedRoute from './protectedRoute';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 
 
@@ -42,8 +43,10 @@ const router = createBrowserRouter([
           { path: '/attraction/:id', element: <AttractionPage />},
           { path: '/presentation', element: <PresentationPage />},
           { path : '/reservation' , element : <ReservationPage />},
-          { path : '/login' , element : <LoginPage />},
-          { path : '/register' , element : <RegisterPage />},
+          { path : '/login' , element :    <GoogleOAuthProvider clientId="192637832836-jl12bto3t9gv8k01rq6tind881m531le.apps.googleusercontent.com"> 
+                 <LoginPage /></GoogleOAuthProvider>},
+          { path : '/register' , element :     <GoogleOAuthProvider clientId="192637832836-jl12bto3t9gv8k01rq6tind881m531le.apps.googleusercontent.com"> 
+             <RegisterPage /></GoogleOAuthProvider>},
           { path : '/profile/:id' , element :    <ProtectedRoute><ProfilPage/></ProtectedRoute> },
           { path : '/profile/:id/reservations' , element :<ProtectedRoute> <ProfilReservationPage/></ProtectedRoute>},
           { path: '/contact', element: <ContactPage /> },
