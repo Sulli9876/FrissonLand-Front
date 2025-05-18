@@ -34,8 +34,9 @@ const ResetPasswordPage: React.FC = () => {
 
   return (
     <main className="auth-page">
-    <div className="auth-container auth-box">
+        <div className="auth-container"> 
       <h3 className="auth-title">Réinitialiser le mot de passe</h3>
+    <div className=" auth-box">
       <form onSubmit={handleSubmit} className="auth-form">
         <label htmlFor="new-password">Nouveau mot de passe</label>
         <input
@@ -60,6 +61,7 @@ const ResetPasswordPage: React.FC = () => {
           {message}
         </p>
       )}
+    </div>
     </div>
   </main>
   );

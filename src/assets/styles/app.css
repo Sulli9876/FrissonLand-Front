@@ -45,6 +45,7 @@ body {
     position: relative;
     z-index: 2; /* pour que ton contenu soit au-dessus du filtre */
   }
+ 
   p {
     font-family: 'Roboto', sans-serif; }
 

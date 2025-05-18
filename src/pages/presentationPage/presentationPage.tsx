@@ -10,10 +10,10 @@ export default function PresentationPage() {
 
       <section className="presentation-container">
 
-        <h2 className="park-subtitle">Bienvenue à ZombieLand !</h2>
+        <h2 className="park-subtitle">Bienvenue à FrissonLand !</h2>
         <h4 className="park-highlight">Plongez dans l’Apocalypse et Déclenchez l’Adrénaline</h4>
         <p className="park-text">
-          ZombieLand n’est pas un parc d’attractions comme les autres – c’est une immersion totale
+          FrissonLand n’est pas un parc d’attractions comme les autres – c’est une immersion totale
           dans un monde post-apocalyptique où seuls les plus courageux oseront s’aventurer...
         </p>
 
@@ -24,7 +24,7 @@ export default function PresentationPage() {
 
         <h4 className="park-highlight">Attractions Époustouflantes</h4>
         <p className="park-text">
-        enez tester vos nerfs sur nos attractions à sensations fortes, inspirées des plus grands films d'horreur et de science-fiction. Qu'il s'agisse de montagnes russes effrayantes ou de parcours dans des labyrinthes hantés, préparez-vous à une dose intense de frissons.
+        Venez tester vos nerfs sur nos attractions à sensations fortes, inspirées des plus grands films d'horreur et de science-fiction. Qu'il s'agisse de montagnes russes effrayantes ou de parcours dans des labyrinthes hantés, préparez-vous à une dose intense de frissons.
         </p>
 
         <h4 className="park-highlight"><strong>Spectacles Horrifiques</strong></h4>
@@ -38,9 +38,9 @@ export default function PresentationPage() {
         
 
         <h4 className="park-highlight">Soyez Prêt Pour l’Inattendu !</h4>
-        <p className="park-text">ZombieLand est plus qu'un simple parc – c'est une aventure que vous n’oublierez jamais. Réunissez vos amis, affrontez vos peurs et plongez dans un monde où chaque instant est une surprise. Nos équipes sont prêtes à vous offrir une expérience mémorable, alors venez tester vos limites ! </p>
+        <p className="park-text">FrissonLand est plus qu'un simple parc – c'est une aventure que vous n’oublierez jamais. Réunissez vos amis, affrontez vos peurs et plongez dans un monde où chaque instant est une surprise. Nos équipes sont prêtes à vous offrir une expérience mémorable, alors venez tester vos limites ! </p>
 
-        <h4 className="park-highlight"><strong>Oserez-vous franchir les portes de ZombieLand ?</strong></h4>
+        <h4 className="park-highlight"><strong>Oserez-vous franchir les portes de FrissonLand ?</strong></h4>
 
         <p className="park-text">Découvrez dès maintenant notre site pour plus d’informations et pour réserver votre place dans l’univers le plus terrifiant que vous ayez jamais connu. Vous ne le regretterez pas !</p>
 

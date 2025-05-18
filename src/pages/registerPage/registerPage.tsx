@@ -89,8 +89,8 @@ const RegisterPage: React.FC = () => {
   return (
     <main className="auth-page">
       <div className="auth-container">
+          <h2 className='auth-title'>Inscription</h2>
         <div className="auth-box">
-          <h3>Inscription</h3>
           <form onSubmit={handleSignupSubmit} className="auth-form">
             <label htmlFor="firstname">Prénom</label>
             <input

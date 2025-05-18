@@ -37,8 +37,8 @@ const LoginPage: React.FC = () => {
   return (
     <main className="auth-page">
     <div className="auth-container">
-      <div className="auth-box">
         <h3 className="auth-title">Connexion</h3>
+      <div className="auth-box">
         <form onSubmit={handleLoginSubmit} className="auth-form">
           <label htmlFor="email">Email</label>
           <input
