@@ -9,7 +9,7 @@ main{
 }
 
 .haut{
-    background-image: url('/public/images/background1.png');
+    background-image: url('/public/images/background1.webp');
     background-position: center center;
   background-size: contain;
   background-repeat: repeat;

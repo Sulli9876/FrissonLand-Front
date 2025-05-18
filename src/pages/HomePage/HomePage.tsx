@@ -94,6 +94,7 @@ const handleNext = () => {
                         src={attraction.image}
                         alt={`Image de ${attraction.name}`}
                         className="attraction-image"
+                          loading="lazy"
                       />
                     </div>
                   ))}

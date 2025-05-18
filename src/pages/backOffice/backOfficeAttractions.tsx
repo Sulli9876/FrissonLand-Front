@@ -16,6 +16,9 @@ export default function BackOfficeAttractions({ token, apiBaseUrl }: BackOfficeA
   const [showModal, setShowModal] = useState(false);
   const [attractionToDelete, setAttractionToDelete] = useState<number | null>(null);
 
+  const [showFormModal, setShowFormModal] = useState(false);
+  const [formAttraction, setFormAttraction] = useState<Partial<Iattractions>>({});
+
   useEffect(() => {
     fetch(`${apiBaseUrl}/categories`)
       .then(res => res.json())
@@ -25,7 +28,8 @@ export default function BackOfficeAttractions({ token, apiBaseUrl }: BackOfficeA
 
   const confirmDelete = (id: number) => {
     setAttractionToDelete(id);
-    setShowModal(true);  };
+    setShowModal(true);
+  };
 
   const handleDelete = () => {
     if (attractionToDelete === null) return;
@@ -43,22 +47,19 @@ export default function BackOfficeAttractions({ token, apiBaseUrl }: BackOfficeA
       })
       .then(() => {
         setAttractions(attractions.filter((a) => a.id !== attractionToDelete));
-         setShowModal(false);
+        setShowModal(false);
         setAttractionToDelete(null);
       })
       .catch((err) => {
         console.error(err);
-         setShowModal(false);
+        setShowModal(false);
         setAttractionToDelete(null);
       });
   };
 
   const handleEdit = (attraction: Iattractions) => {
     setEditingId(attraction.id);
-    setEditedAttraction({
-      ...attraction,
-      category_id: attraction.category_id ?? undefined,
-    });
+    setEditedAttraction({ ...attraction });
   };
 
   const handleSave = (id: number) => {
@@ -89,37 +90,51 @@ export default function BackOfficeAttractions({ token, apiBaseUrl }: BackOfficeA
       .catch((err) => console.error(err));
   };
 
-  const handleCreate = () => {
+  const openFormModal = () => {
     if (categories.length === 0) {
       alert("Aucune catégorie disponible. Créez-en une avant d'ajouter une attraction.");
       return;
     }
 
-    const newAttraction: Partial<Iattractions> = {
-      name: "Nouvelle attraction",
+    setFormAttraction({
+      name: "",
       description: "",
       image: "",
       duration: "00:00:00",
       category_id: categories[0].id,
-    };
+    });
+    setShowFormModal(true);
+  };
+
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormAttraction((prev) => ({
+      ...prev,
+      [name]: name === "category_id" ? (value === "" ? undefined : parseInt(value)) : value,
+    }));
+  };
+
+  const handleFormSubmit = () => {
+    if (!formAttraction.name || !formAttraction.category_id) {
+      alert("Veuillez remplir tous les champs obligatoires.");
+      return;
+    }
+
     fetch(`${apiBaseUrl}/admin/attractions`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newAttraction),
+      body: JSON.stringify(formAttraction),
     })
-      .then((res) => {
-        if (!res.ok) throw new Error("Erreur création");
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data: Iattractions) => {
         setAttractions([...attractions, data]);
-        setEditingId(data.id);
-        setEditedAttraction(data);
+        setShowFormModal(false);
+        setFormAttraction({});
       })
-      .catch((err) => console.error(err));
+      .catch(() => alert("Erreur lors de la création de l'attraction"));
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -131,9 +146,9 @@ export default function BackOfficeAttractions({ token, apiBaseUrl }: BackOfficeA
   };
 
   return (
-     <main className="backoffice backoffice-attractions">
+    <main className="backoffice backoffice-attractions">
       <h2>Attractions</h2>
-      <button onClick={handleCreate} className="add-btn">➕ Ajouter une attraction</button>
+      <button onClick={openFormModal} className="add-btn">➕ Ajouter une attraction</button>
 
       <ul>
         {attractions.map((attraction) => (
@@ -161,21 +176,18 @@ export default function BackOfficeAttractions({ token, apiBaseUrl }: BackOfficeA
                 >
                   <option value="">-- Sélectionner une catégorie --</option>
                   {categories.map((cat) => (
-                    <option key={cat.id ?? cat.name} value={cat.id}>
+                    <option key={cat.id} value={cat.id}>
                       {cat.name}
                     </option>
                   ))}
                 </select>
-
                 <input
                   type="time"
                   name="duration"
                   value={editedAttraction.duration || "00:00:00"}
                   onChange={handleChange}
-                  placeholder="Durée (HH:MM:SS)"
                   step="1"
                 />
-
                 <input
                   type="text"
                   name="image"
@@ -183,14 +195,13 @@ export default function BackOfficeAttractions({ token, apiBaseUrl }: BackOfficeA
                   onChange={handleChange}
                   placeholder="URL de l'image"
                 />
-
                 {editedAttraction.image && (
                   <img
                     src={editedAttraction.image}
-                    alt="Aperçu de l'attraction"
+                    alt="Aperçu"
+                    style={{ maxWidth: "100px" }}
                   />
                 )}
-
                 <button onClick={() => handleSave(attraction.id)} className="action-btn">💾 Sauvegarder</button>
                 <button onClick={() => setEditingId(null)} className="action-btn">❌ Annuler</button>
               </>
@@ -207,12 +218,64 @@ export default function BackOfficeAttractions({ token, apiBaseUrl }: BackOfficeA
         ))}
       </ul>
 
-      <DeleteModal
-              show={showModal}
-              onClose={() => setShowModal(false)}
-              onConfirm={handleDelete}
-              message="Voulez-vous vraiment supprimer cette catégorie ?" // ou "ticket", "réservation", etc.
+      {showFormModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h3>Créer une nouvelle attraction</h3>
+            <input
+              name="name"
+              placeholder="Nom"
+              value={formAttraction.name || ""}
+              onChange={handleFormChange}
             />
+            <input
+              name="description"
+              placeholder="Description"
+              value={formAttraction.description || ""}
+              onChange={handleFormChange}
+            />
+            <input
+              name="image"
+              placeholder="URL de l'image"
+              value={formAttraction.image || ""}
+              onChange={handleFormChange}
+            />
+            <input
+              type="time"
+              step="1"
+              name="duration"
+              value={formAttraction.duration || "00:00:00"}
+              onChange={handleFormChange}
+            />
+            <select
+              name="category_id"
+              value={formAttraction.category_id ?? ""}
+              onChange={handleFormChange}
+            >
+              <option value="">-- Sélectionner une catégorie --</option>
+              {categories.map((cat) => (
+                <option key={cat.id} value={cat.id}>{cat.name}</option>
+              ))}
+            </select>
+            {formAttraction.image && (
+              <img
+                src={formAttraction.image}
+                alt="Aperçu"
+                style={{ maxWidth: "100%", marginTop: "1rem" }}
+              />
+            )}
+            <button className="btn btn-primary" onClick={handleFormSubmit}>Créer</button>
+            <button className="btn btn-secondary" onClick={() => setShowFormModal(false)}>Annuler</button>
+          </div>
+        </div>
+      )}
+
+      <DeleteModal
+        show={showModal}
+        onClose={() => setShowModal(false)}
+        onConfirm={handleDelete}
+        message="Voulez-vous vraiment supprimer cette attraction ?"
+      />
     </main>
   );
 }

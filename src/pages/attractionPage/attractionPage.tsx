@@ -152,6 +152,7 @@ const prevReview = () => {
             src={attraction.image}
             alt={`Image de ${attraction.name}`}
           className="attraction-image"
+            loading="lazy"
         />
       </section>
 

@@ -36,64 +36,68 @@ const LoginPage: React.FC = () => {
 
   return (
     <main className="auth-page">
-      <div className="auth-container">
-        <div className="auth-box">
-          <h3>Connexion</h3>
-          <form onSubmit={handleLoginSubmit} className="auth-form">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              value={loginEmail}
-              onChange={(e) => setLoginEmail(e.target.value)}
-              required
-            />
+    <div className="auth-container">
+      <div className="auth-box">
+        <h3 className="auth-title">Connexion</h3>
+        <form onSubmit={handleLoginSubmit} className="auth-form">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            value={loginEmail}
+            onChange={(e) => setLoginEmail(e.target.value)}
+            required
+          />
 
-            <label htmlFor="password">Mot de passe</label>
-            <input
-              type="password"
-              id="password"
-              value={loginPassword}
-              onChange={(e) => setLoginPassword(e.target.value)}
-              required
-            />
+          <label htmlFor="password">Mot de passe</label>
+          <input
+            type="password"
+            id="password"
+            value={loginPassword}
+            onChange={(e) => setLoginPassword(e.target.value)}
+            required
+          />
 
-            <button type="submit">Se connecter</button>
-            {loginError && <p className="auth-error-message">{loginError}</p>}
-          </form>
+          <button type="submit">Se connecter</button>
+          {loginError && <p className="auth-error-message">{loginError}</p>}
+        </form>
 
-          <div className="auth-redirect">
+        <div className="auth-redirect">
           <p className="separator">ou : </p>
           <div className="google-button-wrapper">
-          <GoogleLogin
-                onSuccess={async (credentialResponse) => {
-                    const res = await fetch(`${API_BASE_URL}/auth/loginGoogle`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ token: credentialResponse.credential }),
-                    });
+            <GoogleLogin
+              onSuccess={async (credentialResponse) => {
+                const res = await fetch(`${API_BASE_URL}/auth/loginGoogle`, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ token: credentialResponse.credential }),
+                });
 
-                    const data = await res.json();
+                const data = await res.json();
 
-                    if (res.ok) {
-                    localStorage.setItem('token', data.token);
-                    navigate('/');
-                    window.location.reload();
-                    } else {
-                    setLoginError(data.message || 'Erreur Google');
-                    }
-                }}
-                onError={() => {
-                    setLoginError('Connexion Google échouée');
-                }}
-                />
-            </div>
-            <p>Vous n'avez pas de compte ?</p>
-            <button onClick={() => navigate('/register')}>S'inscrire</button>
+                if (res.ok) {
+                  localStorage.setItem('token', data.token);
+                  navigate('/');
+                  window.location.reload();
+                } else {
+                  setLoginError(data.message || 'Erreur Google');
+                }
+              }}
+              onError={() => {
+                setLoginError('Connexion Google échouée');
+              }}
+            />
           </div>
+          <p>
+            Mot de passe oublié ?{' '}
+            <button onClick={() => navigate('/forgot-password')}>Cliquez ici</button>
+          </p>
+          <p>Vous n'avez pas de compte ?</p>
+          <button onClick={() => navigate('/register')}>S'inscrire</button>
         </div>
       </div>
-    </main>
+    </div>
+  </main>
   );
 };
 

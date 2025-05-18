@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../../../config';
 import { GoogleLogin } from '@react-oauth/google';
 
-
+import { Link } from 'react-router-dom';
 
 const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
@@ -15,7 +15,8 @@ const RegisterPage: React.FC = () => {
   const [signupPassword, setSignupPassword] = useState('');
   const [signupConfirmPassword, setSignupConfirmPassword] = useState('');
   const [signupError, setSignupError] = useState('');
-  const [signupSuccess, setSignupSuccess] = useState('');
+  const [signupSuccess, setSignupSuccess] = useState<React.ReactNode>(null);
+  
   const [loginError, setLoginError] = useState('');
 
 
@@ -72,7 +73,10 @@ const RegisterPage: React.FC = () => {
 
       const data = await response.json();
       if (response.ok) {
-        setSignupSuccess('Inscription réussie ! Vous pouvez maintenant vous connecter.');
+        setSignupSuccess( <>
+          Inscription réussie ! Vous pouvez maintenant{' '}
+          <Link to="/login">vous connecter</Link>.
+        </>);
       } else {
         setSignupError(data.message || "Erreur d'inscription");
       }

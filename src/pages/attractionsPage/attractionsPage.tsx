@@ -55,6 +55,7 @@ export default function AttractionsPage() {
                   src={attraction.image}
                   alt={`Image de ${attraction.name}`}
                   className="attraction-card__image"
+                    loading="lazy"
                 />
                 {/* Overlay toujours visible */}
                 <div className="attraction-card__overlay">
